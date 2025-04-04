@@ -1,0 +1,14 @@
+{
+    "EC2ContainerService-harness-test-EcsInstanceAsg-UENQJYJOZTN5": 
+      {
+        "DesiredCount": 2,
+        "StartTime": "06:00",
+        "EndTime": "18:00"
+      },
+    "EC2ContainerService-harness-test-EcsInstanceAsg-UENQJYJOZTN51":
+        {
+          "DesiredCount": 2,
+          "StartTime": "06:00",
+          "EndTime": "18:00"
+        }
+}

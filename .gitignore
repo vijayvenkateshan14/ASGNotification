@@ -1,0 +1,32 @@
+# Use `terraform get` to recreate this directory
+# Do not ignore .terraform.lock.hcl, this is still useful for all machines
+.terraform
+
+# Ignore any state files. They need to be stored in s3
+*.tfstate*
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+.terraform/
+
+terraform.exe
+
+.terraform.lock.hcl
+
+# IDEs
+.idea
+.vscode
+
+# OS cruft
+.DS_Store
+
+# Use direnv to load local environment secrets
+.envrc
+
+# For testing variables
+local.tfvars
+
+#ignore .zip lambda package
+*.zip
