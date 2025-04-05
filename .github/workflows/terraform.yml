@@ -1,0 +1,28 @@
+name: Terraform CI/CD
+on: 
+  workflow_dispatch:
+  inputs:
+      environment:
+        description: "Target environment"
+        required: true
+        default: "acceptance"
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::646738440247:role/github-terraform-role
+          aws-region: us-east-1
+      - name: Terraform Init
+        run: terraform init -backend-config=backend-${{ github.event.inputs.environment }}.hcl
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+
+    

@@ -12,18 +12,28 @@ variable "aws_profile" {
    type        = string
  }
 
- variable "report_regions" {
-   description = "AWS REPORTING REGIONS"
-   type        = string
- }
-
- variable "master_account_number" {
+ variable "app" {
   description = "Master AWS Account Number"
   type        = string
 }
 
 
- variable "sns_topic_arn" {
-  description = "SNS Topic ARN"
+ variable "environment" {
+  description = "Master AWS Account Number"
+  type        = string
+}
+
+ variable "state_bucket" {
+  description = "Master AWS Account Number"
+  type        = string
+}
+
+ variable "state_key" {
+  description = "Master AWS Account Number"
+  type        = string
+}
+
+ variable "state_dynamodb_table" {
+  description = "Master AWS Account Number"
   type        = string
 }

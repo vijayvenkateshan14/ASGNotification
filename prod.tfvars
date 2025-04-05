@@ -1,0 +1,8 @@
+aws_region = "us-east-1"
+aws_profile = "wayne-workloadaffleck"
+cust_name  = "ahead"
+app  = "celfie"
+environment="acceptance"
+state_bucket         = "ahead-terraform-state"
+state_key            = "terraform.tfstate"
+state_dynamodb_table = "ahead-terraform-locks"
