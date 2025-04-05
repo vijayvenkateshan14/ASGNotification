@@ -1,5 +1,4 @@
 aws_region = "us-east-2"
-aws_profile = "copilot-dev"
 cust_name  = "ahead"
 app  = "celfie"
 environment="acceptance"

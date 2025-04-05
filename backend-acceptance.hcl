@@ -3,5 +3,5 @@
     region         = "us-east-1"
     dynamodb_table = "ahead-terraform-locks"
     encrypt        = true
-    profile        =  "copilot-dev"
+   
   
