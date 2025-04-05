@@ -1,6 +1,0 @@
-aws_region = "us-east-1"
-aws_profile = "copilot-dev"
-cust_name  = "djo-motionmd"
-report_regions = "us-east-1"
-master_account_number = "646738440247"
-sns_topic_arn = "arn:aws:sns:us-east-1:646738440247:EC2-Create-SNS-Topic"
