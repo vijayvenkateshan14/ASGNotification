@@ -6,7 +6,7 @@ on:
         description: "Target environment"
         required: true
         default: "acceptance"
-        
+
 permissions:
   id-token: write
   contents: read
@@ -27,6 +27,6 @@ jobs:
       - name: Terraform Init
         run: terraform init -backend-config=backend-${{ github.event.inputs.environment }}.hcl
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        run: terraform plan -var-file="${{ github.event.inputs.environment }}.tfvars" -out=tfplan
 
     

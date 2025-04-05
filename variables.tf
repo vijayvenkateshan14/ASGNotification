@@ -8,27 +8,27 @@ variable "aws_region" {
  }
 
  variable "app" {
-  description = "Master AWS Account Number"
+  description = "Application name"
   type        = string
 }
 
 
  variable "environment" {
-  description = "Master AWS Account Number"
+  description = "environment"
   type        = string
 }
 
  variable "state_bucket" {
-  description = "Master AWS Account Number"
+  description = "terraform state bucket"
   type        = string
 }
 
  variable "state_key" {
-  description = "Master AWS Account Number"
+  description = "state file"
   type        = string
 }
 
  variable "state_dynamodb_table" {
-  description = "Master AWS Account Number"
+  description = "State lock table"
   type        = string
 }
