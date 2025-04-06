@@ -37,7 +37,7 @@ jobs:
     needs: terraform-plan
     runs-on: ubuntu-latest
     environment:
-      name: apply
+      name: ${{ github.event.inputs.environment }}
     permissions:
       id-token: write
       contents: read
