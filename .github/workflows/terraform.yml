@@ -21,7 +21,7 @@ jobs:
               echo "branch=ENV-Acceptance" >> $GITHUB_OUTPUT
               echo "AWS_ACCOUNT=${{ vars.ACCEPTANCE_ACCOUNT }}" >> $GITHUB_ENV
               ;;
-            production)
+            prod)
               echo "branch=ENV-Prod" >> $GITHUB_OUTPUT
               echo "AWS_ACCOUNT=${{ vars.PROD_ACCOUNT }}" >> $GITHUB_ENV
               ;;
@@ -77,7 +77,7 @@ jobs:
               echo "branch=ENV-Acceptance" >> $GITHUB_OUTPUT
               echo "AWS_ACCOUNT=${{ vars.ACCEPTANCE_ACCOUNT }}" >> $GITHUB_ENV
               ;;
-            production)
+            prod)
               echo "branch=ENV-Prod" >> $GITHUB_OUTPUT
               echo "AWS_ACCOUNT=${{ vars.PROD_ACCOUNT }}" >> $GITHUB_ENV
               ;;
