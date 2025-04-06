@@ -95,6 +95,9 @@ jobs:
             echo "ACCOUNT: ${{ vars.ACCOUNT }}"
             echo "AWS_ACCOUNT: ${{ env.AWS_ACCOUNT }}"
             echo "Event: ${{ github.event_name }}"
+            echo $PROD_ACCOUNT
+            echo $AWS_ACCOUNT
+            echo $ACCEPTANCE_ACCOUNT
       - name: Checkout
         uses: actions/checkout@v4
         with:
