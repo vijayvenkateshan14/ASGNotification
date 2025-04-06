@@ -32,20 +32,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tfplan
-          path: tfplan
-      - name: Check lock file
-        run: |
-            echo "Current dir: $(pwd)"
-            echo "Expected workspace: ${{ github.workspace }}"
-            ls -ltra ${{ github.workspace }}/.terraform.lock.hcl
-        
-      - name: Upload lock file
-        uses: actions/upload-artifact@v4
-        with:
-          name: lockfile
-          path: ./.terraform.lock.hcl
-
-    
+          path: tfplan  
 
   terraform-apply:
     name: Terraform Apply (Manual Approval)
@@ -76,11 +63,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
             name: tfplan
-            path: .      
-      - name: Download lock file
-        uses: actions/download-artifact@v4
-        with:
-         name: lockfile
-         path: .          
+            path: .
+      - name: Terraform Init
+        run: terraform init -backend-config=backend-${{ github.event.inputs.environment }}.hcl      
       - name: Terraform Apply
         run: terraform apply -var-file="${{ github.event.inputs.environment }}.tfvars" -auto-approve tfplan

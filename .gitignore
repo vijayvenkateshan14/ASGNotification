@@ -13,6 +13,8 @@ terraform.rc
 
 terraform.exe
 
+.terraform.lock.hcl
+
 # IDEs
 .idea
 .vscode
