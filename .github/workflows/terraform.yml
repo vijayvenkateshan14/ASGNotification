@@ -31,6 +31,12 @@ jobs:
         with:
           name: tfplan
           path: tfplan
+      - name: Upload lock file
+        uses: actions/upload-artifact@v4
+        with:
+          name: lockfile
+          path: .terraform.lock.hcl
+    
 
   terraform-apply:
     name: Terraform Apply (Manual Approval)
@@ -61,6 +67,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
             name: tfplan
-            path: .  
+            path: .      
+      - name: Download lock file
+        uses: actions/download-artifact@v4
+        with:
+         name: lockfile
+         path: .          
       - name: Terraform Apply
         run: terraform apply -var-file="${{ github.event.inputs.environment }}.tfvars" -auto-approve tfplan
