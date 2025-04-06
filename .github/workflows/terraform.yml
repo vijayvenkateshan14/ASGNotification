@@ -19,11 +19,11 @@ jobs:
           case "${{ github.event.inputs.environment }}" in
             acceptance)
               echo "branch=ENV-Acceptance" >> $GITHUB_OUTPUT
-              echo "AWS_ACCOUNT=${{ vars.ACCEPTANCE_ACCOUNT }}" >> $GITHUB_OUTPUT
+              echo "AWS_ACCOUNT=${{ vars.ACCEPTANCE_ACCOUNT }}" >> $GITHUB_ENV
               ;;
             production)
               echo "branch=ENV-Prod" >> $GITHUB_OUTPUT
-              echo "AWS_ACCOUNT=${{ vars.PROD_ACCOUNT }}" >> $GITHUB_OUTPUT
+              echo "AWS_ACCOUNT=${{ vars.PROD_ACCOUNT }}" >> $GITHUB_ENV
               ;;
             *)
               echo "Invalid environment" && exit 1
@@ -38,7 +38,7 @@ jobs:
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::${{ steps.set_branch.outputs.AWS_ACCOUNT }}:role/github-terraform-role
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT }}:role/github-terraform-role
           aws-region: us-east-1
       - name: Terraform Init
         run: terraform init -backend-config=backend-${{ github.event.inputs.environment }}.hcl
@@ -68,9 +68,11 @@ jobs:
           case "${{ github.event.inputs.environment }}" in
             acceptance)
               echo "branch=ENV-Acceptance" >> $GITHUB_OUTPUT
+              echo "AWS_ACCOUNT=${{ vars.ACCEPTANCE_ACCOUNT }}" >> $GITHUB_ENV
               ;;
             production)
               echo "branch=ENV-Prod" >> $GITHUB_OUTPUT
+              echo "AWS_ACCOUNT=${{ vars.PROD_ACCOUNT }}" >> $GITHUB_ENV
               ;;
             *)
               echo "Invalid environment" && exit 1
@@ -91,7 +93,7 @@ jobs:
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::646738440247:role/github-terraform-role
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT }}:role/github-terraform-role
           aws-region: us-east-1
       - name: Download tfplan
         uses: actions/download-artifact@v4
