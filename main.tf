@@ -3,5 +3,6 @@ resource "aws_vpc" "enovis_vpc" {
   tags = {
     Name = "enovis-vpc"
     Application = var.app
+    Enviornment = var.environment
   }
 }
